@@ -20,10 +20,10 @@ WORKDIR $GOPATH/src/github.com/edgexfoundry/device-snmp-go
 #COPY . .
 
 # To run tests in the build container:
-#   docker build --build-arg 'MAKE=build test' .
+   docker build --build-arg 'MAKE=build test' .
 # This is handy of you do your Docker business on a Mac
-ARG MAKE='build test'
-RUN make $MAKE
+#ARG MAKE='build test'
+#RUN make $MAKE
 
 
 FROM scratch
