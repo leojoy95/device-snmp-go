@@ -17,7 +17,7 @@ RUN apk add --no-cache ${ALPINE_PKG_BASE} ${ALPINE_PKG_EXTRA}
 
 WORKDIR $GOPATH/src/github.com/edgexfoundry/device-snmp-go
 
-COPY . .
+#COPY . .
 
 # To run tests in the build container:
 #   docker build --build-arg 'MAKE=build test' .
@@ -35,6 +35,6 @@ EXPOSE $APP_PORT
 ENV DEVICE_PORT=161
 EXPOSE $DEVICE_PORT
 
-COPY --from=builder /go/src/github.com/edgexfoundry/device-snmp-go/cmd /
+#COPY --from=builder /go/src/github.com/edgexfoundry/device-snmp-go/cmd /
 
 ENTRYPOINT ["/device-snmp-go","--profile=docker","--confdir=/res","--registry=consul://edgex-core-consul:8500"]
